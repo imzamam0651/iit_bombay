@@ -9,6 +9,9 @@ import http.client
 from django.conf import settings
 from django.contrib.auth import authenticate, login
 
+def login(request):
+      return render (request, 'login.html')
+
 
 def send_otp(mobile, otp):
         conn = http.client.HTTPConnection("api.msg91.com")
@@ -50,4 +53,3 @@ def otp (request):
         context = {mobile:mobile}
         return render (request, 'otp.html', context)
 
-        
